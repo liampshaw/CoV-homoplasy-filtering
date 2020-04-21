@@ -74,7 +74,7 @@ homoplasic.counts.filt <- homoplasic.counts.filt[which(homoplasic.counts.filt$pr
 # Further high-quality homoplasy thresholds
 #DISTANCE.TO.HOMOPLASY <- 10
 # High-quality homoplasy thresholds
-PROPORTION.NEAREST.NEIGHBOUR.HAS.HOMOPLASY <- 0.5
+PROPORTION.NEAREST.NEIGHBOUR.HAS.HOMOPLASY <- 0.4
 N.ISOLATES.WITH.HOMOPLASY <- 10
 homoplasic.counts.filt.HQ <- homoplasic.counts.filt[which( homoplasic.counts.filt$proportion.nearest.neighbour.has.homoplasy>PROPORTION.NEAREST.NEIGHBOUR.HAS.HOMOPLASY &
                                                              homoplasic.counts.filt$N.isolates.with.homoplasy>N.ISOLATES.WITH.HOMOPLASY),]
