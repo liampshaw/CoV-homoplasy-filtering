@@ -1,0 +1,6 @@
+data/*
+*docx
+scripts/messing-around.R
+scripts/*pdf
+scripts/*Rhistory
+.DS_Store
