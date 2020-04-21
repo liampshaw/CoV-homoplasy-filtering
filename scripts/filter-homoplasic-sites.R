@@ -5,13 +5,15 @@ library(reshape2)
 library(ggplot2)
 library(broman)
 library(cowplot)
+library(dplyr)
+library(chron)
 
 source('functions.R')
 source('read-data.R')
 
 # Select all homoplasies (Min.No.ChangesonTree>2,
 GENOME.LENGTH <- 29903
-all.homoplasic.sites <- snp.counts[which(snp.counts$Min.No.ChangesonTree>2),"bp"]
+all.homoplasic.sites <- snp.counts[which(snp.counts$Min.No.ChangesonTree>0),"bp"]
 
 # 1. Histogram of all homoplasic sites by position in genome
 pdf('../figures/homoplasic-sites-histogram-position.pdf')
@@ -29,8 +31,7 @@ homoplasic.counts$dist.nearest.homoplasy <- sapply(homoplasic.counts$bp,
 # 2. Homoplasic sites 
 # excluding first and last N bp of genome
 N <- 500 
-homoplasic.counts.filt <- homoplasic.counts[which(homoplasic.counts$Min.No.ChangesonTree>2 & 
-                                              homoplasic.counts$bp>N & homoplasic.counts$bp<GENOME.LENGTH-N),]
+homoplasic.counts.filt <- homoplasic.counts[which(homoplasic.counts$bp>N & homoplasic.counts$bp<GENOME.LENGTH-N),]
 
 
 # 3. Go through and record whether an isolate's nearest eighbour has the homoplasy. 

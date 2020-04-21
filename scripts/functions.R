@@ -123,6 +123,23 @@ getIsolatesWithMinorVariant <- function(site){
   return(tree.isolates.select)
 }
 
+# Function to plot the metadata of isolates with a homoplasy
+plotMetadataIsolates <- function(set.of.EPI.ids, metadata=isolate.metadata){
+  subset.metadata <- metadata[which(metadata$gisaid_epi_isl %in% set.of.EPI.ids),]
+  # Add a 'month' field
+  subset.metadata$month <- gsub("^[0-9][0-9]\\/", "", subset.metadata$date)
+  subset.metadata.plot.df <- subset.metadata %>% dplyr::group_by(month, region_exposure) %>%
+    summarise(n=length(month))
+  # Remove those with unknown month
+  subset.metadata.plot.df <- subset.metadata.plot.df[which(subset.metadata.plot.df$month!="2020"),]
+  #subset.metadata.plot.df$month.chron <- chron(dates=subset.metadata.plot.df$month,
+        #                                       format=c(dates="m/y"))
+  ggplot(subset.metadata.plot.df, aes(month, n, fill=region_exposure))+
+    geom_bar(position="stack", stat="identity", width=0.5)+
+    theme_basic()+
+    xlab("date")
+}
+
 # Basic plot theme
 theme_basic <- function () { 
   theme_bw(base_size=14) %+replace% 
