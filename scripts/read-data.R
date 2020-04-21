@@ -1,14 +1,14 @@
 # Read in tree
-tree <- read.tree('../data/gisaid_cov2020_sequences.QC.human.aln.root.QC.tree')
+tree <- read.tree('../data/gisaid_cov2020_sequences.QC.human.filter.aln.treefile')
 cophenetic.d <- cophenetic(tree)
 cophenetic.df <- as.data.frame(melt(cophenetic.d))
 
 # Read in alignment
-aln <- read.alignment('../data/gisaid_cov2020_sequences.QC.human.aln',
+aln <- read.alignment('../data/gisaid_cov2020_sequences.QC.human.filter.rename.noambig.aln.fasta',
                       format = 'fasta')
 
 # Read in SNP counts (tsv despite extension)
-snp.counts <- read.csv('../data/SNP_homoplasy_counts_table-19-04-2020.csv',
+snp.counts <- read.csv('../data/SNP_homoplasy_counts_table.filter.csv',
                        header = T, 
                        stringsAsFactors = F,
                        sep = '\t')
