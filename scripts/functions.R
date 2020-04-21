@@ -34,8 +34,8 @@ getCopheneticDistributionForHomoplasy <- function(site){
   # Look at cophenetic distances
   # Need to first remove those not present in tree
   # Grep for EPI ISL
-  isolates.with.minor.variant.epi.isl <- gsub("\\|.*|", "", gsub(".*EPI", "EPI", isolates.with.minor.variant))
-  tree.isolates.select <- tree$tip.label[unlist(sapply(isolates.with.minor.variant.epi.isl,
+  #isolates.with.minor.variant.epi.isl <- gsub("\\|.*|", "", gsub(".*EPI", "EPI", isolates.with.minor.variant))
+  tree.isolates.select <- tree$tip.label[unlist(sapply(isolates.with.minor.variant,
                                                        function(x) grep(x,tree$tip.label )))]
   
   
@@ -53,8 +53,7 @@ plotHomoplasyCopheneticDistribution <- function(homoplasy.df, title=""){
     xlab("cophenetic distance")+
     ylab("density")+
     ggtitle(title)+
-    theme_basic()#+
-    #ylim(c(0,4300))
+    theme_basic()
 }
 getTitleString <- function(site, snp.df=homoplasic.counts.filt){
   # Useful information for a plot title
@@ -117,8 +116,8 @@ getIsolatesWithMinorVariant <- function(site){
   # Look at cophenetic distances
   # Need to first remove those not present in tree
   # Grep for EPI ISL
-  isolates.with.minor.variant.epi.isl <- gsub("\\|.*|", "", gsub(".*EPI", "EPI", isolates.with.minor.variant))
-  tree.isolates.select <- tree$tip.label[unlist(sapply(isolates.with.minor.variant.epi.isl,
+  #isolates.with.minor.variant.epi.isl <- gsub("\\|.*|", "", gsub(".*EPI", "EPI", isolates.with.minor.variant))
+  tree.isolates.select <- tree$tip.label[unlist(sapply(isolates.with.minor.variant,
                                                        function(x) grep(x,tree$tip.label )))]
   return(tree.isolates.select)
 }

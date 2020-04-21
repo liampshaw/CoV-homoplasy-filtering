@@ -35,6 +35,7 @@ N <- 500
 homoplasic.counts.filt <- homoplasic.counts[which(homoplasic.counts$bp>N & homoplasic.counts$bp<GENOME.LENGTH-N),]
 
 
+
 # 3. Go through and record whether an isolate's nearest eighbour has the homoplasy. 
 homoplasic.counts.filt$N.nearest.neighbour.has.homoplasy <- NA
 homoplasic.counts.filt$N.nearest.neighbour.lacks.homoplasy <- NA
@@ -70,21 +71,26 @@ write.csv(homoplasic.counts.filt, file='../output-data/homoplasic-SNP-counts-fil
 # Exclude the homoplasies with < 0.1 proportion (i.e. the large peak at 0)
 homoplasic.counts.filt <- homoplasic.counts.filt[which(homoplasic.counts.filt$proportion.nearest.neighbour.has.homoplasy>0.1),]
 
+# Further high-quality homoplasy thresholds
+#DISTANCE.TO.HOMOPLASY <- 10
+# High-quality homoplasy thresholds
+PROPORTION.NEAREST.NEIGHBOUR.HAS.HOMOPLASY <- 0.5
+N.ISOLATES.WITH.HOMOPLASY <- 10
+homoplasic.counts.filt.HQ <- homoplasic.counts.filt[which( homoplasic.counts.filt$proportion.nearest.neighbour.has.homoplasy>PROPORTION.NEAREST.NEIGHBOUR.HAS.HOMOPLASY &
+                                                             homoplasic.counts.filt$N.isolates.with.homoplasy>N.ISOLATES.WITH.HOMOPLASY),]
+write.csv(homoplasic.counts.filt.HQ, file='../output-data/homoplasic-SNP-counts-filtered-HQ.csv')
+
+
+
 # For these, make plots
-for (h in homoplasic.counts.filt$bp){
+for (h in homoplasic.counts.filt.HQ$bp){
   print(h)
   h.df <- getCopheneticDistributionForHomoplasy(site = h)
   h.plot <- plotHomoplasyCopheneticDistribution(h.df, title=getTitleString(h))
   ggsave(h.plot, file=paste0('../figures/cophenetic-distributions/', h, '.pdf'))
 }
 
-# High-quality homoplasy thresholds
-#DISTANCE.TO.HOMOPLASY <- 10
-PROPORTION.NEAREST.NEIGHBOUR.HAS.HOMOPLASY <- 0.4
-N.ISOLATES.WITH.HOMOPLASY <- 10
-homoplasic.counts.filt.HQ <- homoplasic.counts.filt[which( homoplasic.counts.filt$proportion.nearest.neighbour.has.homoplasy>PROPORTION.NEAREST.NEIGHBOUR.HAS.HOMOPLASY &
-                                    homoplasic.counts.filt$N.isolates.with.homoplasy>N.ISOLATES.WITH.HOMOPLASY),]
-write.csv(homoplasic.counts.filt.HQ, file='../output-data/homoplasic-SNP-counts-filtered-HQ.csv')
+
 
 
 
