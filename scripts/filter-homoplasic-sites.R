@@ -61,7 +61,7 @@ hist(homoplasic.counts.filt$proportion.nearest.neighbour.has.homoplasy,
 dev.off()
 
 # Write to file
-write.csv(homoplasic.counts.filt, file='../data/homoplasic-SNP-counts-filtered.csv')
+write.csv(homoplasic.counts.filt, file='../output-data/homoplasic-SNP-counts-filtered.csv')
 
 # 4. Make plots 
 # Exclude the homoplasies with < 0.1 proportion (i.e. the large peak at 0)
