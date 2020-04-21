@@ -49,7 +49,8 @@ for (i in seq(1, nrow(homoplasic.counts.filt))){
   homoplasic.counts.filt$N.nearest.neighbour.intermediate <- length(results[which(results!=1 & results!=0)])
 }
 # Calculate proportion of isolates with homoplasy with nearest neighbour with the homoplasy
-homoplasic.counts.filt$proportion.nearest.neighbour.has.homoplasy <- homoplasic.counts.filt$N.nearest.neighbour.has.homoplasy/(homoplasic.counts.filt$N.nearest.neighbour.has.homoplasy+homoplasic.counts.filt$N.nearest.neighbour.lacks.homoplasy + homoplasic.counts.filt$N.nearest.neighbour.intermediate)
+homoplasic.counts.filt$N.isolates.with.homoplasy <- homoplasic.counts.filt$N.nearest.neighbour.has.homoplasy+homoplasic.counts.filt$N.nearest.neighbour.lacks.homoplasy+homoplasic.counts.filt$N.nearest.neighbour.intermediate
+homoplasic.counts.filt$proportion.nearest.neighbour.has.homoplasy <- homoplasic.counts.filt$N.nearest.neighbour.has.homoplasy/homoplasic.counts.filt$N.isolates.with.homoplasy
 
 # Histogram of these distances
 pdf('../figures/histogram-homoplasic-sites-nearest-neighbour-proportion.pdf')
@@ -74,5 +75,14 @@ for (h in homoplasic.counts.filt$bp){
   h.plot <- plotHomoplasyCopheneticDistribution(h.df, title=getTitleString(h))
   ggsave(h.plot, file=paste0('../figures/cophenetic-distributions/', h, '.pdf'))
 }
+
+# High-quality homoplasy thresholds
+DISTANCE.TO.HOMOPLASY <- 10
+PROPORTION.NEAREST.NEIGHBOUR.HAS.HOMOPLASY <- 0.5
+N.ISOLATES.WITH.HOMOPLASY <- 10
+nrow(homoplasic.counts.filt[which(homoplasic.counts.filt$dist.nearest.homoplasy>DISTANCE.TO.HOMOPLASY & 
+                                    homoplasic.counts.filt$proportion.nearest.neighbour.has.homoplasy>PROPORTION.NEAREST.NEIGHBOUR.HAS.HOMOPLASY &
+                                    homoplasic.counts.filt$N.isolates.with.homoplasy>N.ISOLATES.WITH.HOMOPLASY),])
+
 
 
