@@ -80,9 +80,10 @@ for (h in homoplasic.counts.filt$bp){
 DISTANCE.TO.HOMOPLASY <- 10
 PROPORTION.NEAREST.NEIGHBOUR.HAS.HOMOPLASY <- 0.5
 N.ISOLATES.WITH.HOMOPLASY <- 10
-nrow(homoplasic.counts.filt[which(homoplasic.counts.filt$dist.nearest.homoplasy>DISTANCE.TO.HOMOPLASY & 
+homoplasic.counts.filt.HQ <- homoplasic.counts.filt[which(homoplasic.counts.filt$dist.nearest.homoplasy>DISTANCE.TO.HOMOPLASY & 
                                     homoplasic.counts.filt$proportion.nearest.neighbour.has.homoplasy>PROPORTION.NEAREST.NEIGHBOUR.HAS.HOMOPLASY &
-                                    homoplasic.counts.filt$N.isolates.with.homoplasy>N.ISOLATES.WITH.HOMOPLASY),])
+                                    homoplasic.counts.filt$N.isolates.with.homoplasy>N.ISOLATES.WITH.HOMOPLASY),]
+write.csv(homoplasic.counts.filt.HQ, file='../output-data/homoplasic-SNP-counts-filtered-HQ.csv')
 
 
 
