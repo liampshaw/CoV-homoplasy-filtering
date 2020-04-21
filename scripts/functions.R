@@ -53,8 +53,8 @@ plotHomoplasyCopheneticDistribution <- function(homoplasy.df, title=""){
     xlab("cophenetic distance")+
     ylab("density")+
     ggtitle(title)+
-    theme_basic()+
-    ylim(c(0,4300))
+    theme_basic()#+
+    #ylim(c(0,4300))
 }
 getTitleString <- function(site, snp.df=homoplasic.counts.filt){
   # Useful information for a plot title

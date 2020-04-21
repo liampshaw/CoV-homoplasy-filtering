@@ -17,7 +17,8 @@ all.homoplasic.sites <- snp.counts[which(snp.counts$Min.No.ChangesonTree>0),"bp"
 
 # 1. Histogram of all homoplasic sites by position in genome
 pdf('../figures/homoplasic-sites-histogram-position.pdf')
-hist(all.homoplasic.sites, breaks=100, col='black', xlab='Position in genome', main='')
+hist(all.homoplasic.sites, col='black', xlab='Position in genome', main='',
+      breaks=seq(0, 30000, 500))
 dev.off()
 
 # Create dataset
@@ -78,11 +79,10 @@ for (h in homoplasic.counts.filt$bp){
 }
 
 # High-quality homoplasy thresholds
-DISTANCE.TO.HOMOPLASY <- 10
-PROPORTION.NEAREST.NEIGHBOUR.HAS.HOMOPLASY <- 0.5
+#DISTANCE.TO.HOMOPLASY <- 10
+PROPORTION.NEAREST.NEIGHBOUR.HAS.HOMOPLASY <- 0.4
 N.ISOLATES.WITH.HOMOPLASY <- 10
-homoplasic.counts.filt.HQ <- homoplasic.counts.filt[which(homoplasic.counts.filt$dist.nearest.homoplasy>DISTANCE.TO.HOMOPLASY & 
-                                    homoplasic.counts.filt$proportion.nearest.neighbour.has.homoplasy>PROPORTION.NEAREST.NEIGHBOUR.HAS.HOMOPLASY &
+homoplasic.counts.filt.HQ <- homoplasic.counts.filt[which( homoplasic.counts.filt$proportion.nearest.neighbour.has.homoplasy>PROPORTION.NEAREST.NEIGHBOUR.HAS.HOMOPLASY &
                                     homoplasic.counts.filt$N.isolates.with.homoplasy>N.ISOLATES.WITH.HOMOPLASY),]
 write.csv(homoplasic.counts.filt.HQ, file='../output-data/homoplasic-SNP-counts-filtered-HQ.csv')
 

@@ -4,3 +4,4 @@ scripts/messing-around.R
 scripts/*pdf
 scripts/*Rhistory
 .DS_Store
+figures/cophenetic-distributions/*pdf
