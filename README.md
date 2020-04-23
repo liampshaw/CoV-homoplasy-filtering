@@ -17,7 +17,14 @@ The script takes as input:
 
 The main script `filter-homoplasic-sites.R` is run from within the `scripts` directory. It assumes that you have a `input-data` directory with your input data and that the names of isolates in the tree and alignment are the same. As the script was developed with a specific analysis in mind, it will **almost certainly break** on new data. Please use with caution if this is your intention. 
 
-**A note on filtering thresholds.** These are available in the main script. See manuscript for more discussion of the rationale.  
+**A note on filtering thresholds.** There are several filtering thresholds used (see manuscript for more discussion).
+
+* Number of isolates with homoplasy. Default threshold: >10. Rationale: small numbers of isolates more likely to be due to random sequencing error. 
+* Position of homoplasy in genome. Default threshold: exclude first/last 500 bp. Rationale: sequencing error appears more common in these regions, causing high density of apparent homoplasies.  
+* Proportion of isolates with homoplasy which have a nearest neighbour in the tree with the homoplasy: ranges between 0 (singleton isolates with homoplasy throughout tree) and 1 (clusters of isolates with homoplasy). Default threshold: >0.1. Rationale: apparent homoplasies caused by random sequencing error are *a priori* unlikely to cluster with each other in the tree. 
+* Proportion of isolates with the homoplasy which have at least one 'N' in the region +/- 2 bp around the homoplasy. Default threshold: equal to zero. Rationale: 'N' in local region could be suggestive of hard-to-sequence region. 
+ 
+These thresholds can be changed in the main script. See manuscript for more discussion of the rationale.  
 
 ## Outputs
 
