@@ -8,12 +8,27 @@ library(cowplot)
 library(dplyr)
 library(chron)
 
+# Parameters for running the script. 
+# Note that listed input files are *NOT INCLUDED* in this repository
+# Length of the SARS-CoV-2 genome
 GENOME.LENGTH <- 29903
+# RaxML tree file
+TREE.FILE <- '../input-data/raxML_input_tree.tree'
+# Multiple sequence alignment file, with ambiguous sites removed and replaced with N
+ALIGNMENT.FILE <- '../input-data/input_alignment.aln'
+# Homoplasy file (from HomoplasyFinder output)
+HOMOPLASY.COUNTS.FILE <- '../input-data/input_homoplasy_finder.csv'
+
+# Output folders
+FIGURE.OUTPUT.FOLDER <- '../figures'
+DATA.OUTPUT.FOLDER <- '../output-data'
+dir.create(paste0(FIGURE.OUTPUT.FOLDER))
+dir.create(paste0(DATA.OUTPUT.FOLDER))
 
 source('functions.R')
 source('read-data.R')
 
-# Select all homoplasies (Min.No.ChangesonTree>2,
+# Select all homoplasies (should all have Min.No.ChangesonTree>0 anyway, but good to check)
 all.homoplasic.sites <- snp.counts[which(snp.counts$Min.No.ChangesonTree>0),"bp"]
 
 # 1. Histogram of all homoplasic sites by position in genome
@@ -23,7 +38,7 @@ hist(all.homoplasic.sites, col='black', xlab='Position in genome', main='',
 dev.off()
 
 # Create dataset
-homoplasic.counts <- snp.counts[all.homoplasic.sites,]
+homoplasic.counts <- snp.counts[which(snp.counts$Min.No.ChangesonTree>0),]
 
 # Add nearest potential homoplasy 
 homoplasic.counts$dist.nearest.homoplasy <- sapply(homoplasic.counts$bp, 
@@ -69,11 +84,8 @@ hist(homoplasic.counts$proportion.nearest.neighbour.has.homoplasy,
      main='')
 dev.off()
 
-# Add correct SNP counts (calculated in other script)
-snp.counts.correct <- read.csv('data/SNP_counts_new.csv', header=T, row.names = 1)
-homoplasic.counts$SNP_count <- snp.counts.correct$SNP.count[homoplasic.counts$bp]
 # Write to file
-write.csv(homoplasic.counts, file='../output-data/all-homoplasic-sites-table.csv')
+write.csv(homoplasic.counts, file=paste0(DATA.OUTPUT.FOLDER, '/all-homoplasic-sites-table.csv'))
 
 # 4. Make plots 
 
@@ -84,7 +96,7 @@ write.csv(homoplasic.counts, file='../output-data/all-homoplasic-sites-table.csv
 # Exclude the homoplasies with < 0.1 proportion (i.e. the large peak at 0)
 N <- 500 
 homoplasic.counts.filt <- homoplasic.counts[which(homoplasic.counts$bp>N & homoplasic.counts$bp<GENOME.LENGTH-N),]
-pdf('../figures/histogram-homoplasic-sites-nearest-neighbour-proportion-excluding-first-last-500-bp.pdf')
+pdf(paste0(FIGURE.OUTPUT.FOLDER, '/histogram-homoplasic-sites-nearest-neighbour-proportion-excluding-first-last-500-bp.pdf'))
 hist(homoplasic.counts$proportion.nearest.neighbour.has.homoplasy, 
      breaks=100, 
      col='black', 
@@ -100,7 +112,7 @@ homoplasic.counts.filt.HQ <- homoplasic.counts.filt.HQ[which(  homoplasic.counts
 # No isolates with homoplasy with N in surround 4 bp
 homoplasic.counts.filt.HQ <- homoplasic.counts.filt.HQ[which(  homoplasic.counts.filt.HQ$proportion.with.N.within.2.bp==0),]
 
-write.csv(homoplasic.counts.filt.HQ, file='../output-data/filtered-homoplasic-sites-table.csv')
+write.csv(homoplasic.counts.filt.HQ, file=paste0(DATA.OUTPUT.FOLDER, '/filtered-homoplasic-sites-table.csv'))
 
 
 # For these, make plots

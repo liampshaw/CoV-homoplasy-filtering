@@ -25,7 +25,7 @@ getMinorVariantFraction <- function(site){
   return(as.numeric(allele.counts[2]/sum(allele.counts)))
 }
 
-getCopheneticDistributionForHomoplasy <- function(site){
+getCopheneticDistributionForHomoplasy <- function(site, snp.counts=snp.counts){
   # Find isolates with minor variant
   minor.variant.base <- getMinorVariantSite(site)
   minor.variant <- unlist(lapply(aln$seq, function(x) substr(x, site, site)==minor.variant.base))
@@ -155,4 +155,21 @@ getAdjacentNscore <- function(site, isolate, fasta=aln){
   character.region <- strsplit(substr(aln$seq[[which(aln$nam==isolate)]], start=site-2, stop=site+2), split='')[[1]]
   character.region <- character.region[c(1,2,4,5)]
   return(length(grep("n", character.region)))
+}
+
+# Get SNP count
+getSNPcount <- function(fasta, site){
+  table.alleles <- sort(table(unlist(lapply(fasta$seq, function(x) substr(x, start=site, stop=site)))), decreasing = TRUE)
+  
+  # Only keep a/t/c/g, but count total proportion
+  total.alleles <- sum(table.alleles)
+  table.alleles <- table.alleles[which(names(table.alleles) %in% c("a", "t", "c", "g"))]
+  # If table not all one allele, then return sum of minor variants (this is the SNP count for that site)
+  if (length(table.alleles)>1){
+    return(sum(table.alleles[2:length(table.alleles)]))
+  }
+  else{
+    return(0)
+  }
+  
 }
