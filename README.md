@@ -1,6 +1,6 @@
 # Homoplasy filtering
 
-This repository contains R scripts for filtering out potential sequencing artefacts from assemblies in order to identify putative homoplasic sites in SARS-CoV-2.
+This repository contains R scripts for filtering out spurious homoplasic sites from SARS-CoV-2 assemblies.
 
 Associated publication: **to be included** 
 
