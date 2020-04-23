@@ -11,8 +11,8 @@ Liam Shaw, liam.philip.shaw@gmail.com
 
 The script takes as input:
 
-* A phylogenetic tree - generated with RaxML from a multiple sequence alignment
-* A dataset of homoplasy counts - generated with HomoplasyFinder from a maximum parsimony tree (MPBoot), with some additional metadata added (e.g. which protein a site is in)
+* A dataset of homoplasy counts - generated with HomoplasyFinder from a maximum parsimony tree (MPBoot), with some additional metadata added (e.g. which protein a site is in) [example included]
+* A phylogenetic tree - generated with RaxML from a multiple sequence alignment [not included, see below]
 * A multiple sequence alignment - generated from GISAID assemblies [not included, see below] 
 
 The main script `filter-homoplasic-sites.R` is run from within the `scripts` directory. It assumes that you have a `input-data` directory with your input data and that the names of isolates in the tree and alignment are the same. As the script was developed with a specific analysis in mind, it will **almost certainly break** on new data. Please use with caution if this is your intention. 
@@ -45,4 +45,4 @@ Outputs are stored in `figures` and `output-data`. They include:
 
 Underlying data (n=6971 assemblies) for the input files comes from the GISAID consortium. A full acknowledgements list of originating and submitting laboratories (as ofApril 23 2020) is available in `acknowledgements.tsv`.
 
-The multiple sequence alignment is not included in this repository as per the terms of the GISAID consortium for sharing sequence data ('You agree not to distribute Data to any third party other than Authorized Users as contemplated by this Agreement.') In order to obtain access to the assemblies in the multiple sequence alignment, you can register as a user of GISAID [here](https://www.gisaid.org/registration/register/). 
+The tree and multiple sequence alignment are not included in this repository as per the terms of the GISAID consortium for sharing sequence data ('You agree not to distribute Data to any third party other than Authorized Users as contemplated by this Agreement.') In order to obtain access to the assemblies in the multiple sequence alignment, you can register as a user of GISAID [here](https://www.gisaid.org/registration/register/). 
