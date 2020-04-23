@@ -28,7 +28,9 @@ The main script `filter-homoplasic-sites.R` is run from within the `scripts` dir
 * Proportion of isolates with the homoplasy which have at least one 'N' in the region +/- 2 bp around the homoplasy. Default: **equal to zero**  
 *Rationale*: 'N' in local region could be suggestive of hard-to-sequence region. 
  
-These thresholds can be changed in the main script. See manuscript for more discussion of the rationale.  
+These thresholds can be changed in the main script. See manuscript for more discussion of the rationale. 
+
+For the avoidance of doubt: it is possible that even homoplasies which pass these filtering thresholds may be artefactual/spurious, so please use with caution.  
 
 ## Outputs
 
@@ -41,6 +43,6 @@ Outputs are stored in `figures` and `output-data`. They include:
 
 ## Data availability
 
-Underlying data (n=6971 assemblies) for the input files comes from the GISAID consortium. A full acknowledgements table of laboratories is available in `acknowledgements.tsv`.
+Underlying data (n=6971 assemblies) for the input files comes from the GISAID consortium. A full acknowledgements list of originating and submitting laboratories (as ofApril 23 2020) is available in `acknowledgements.tsv`.
 
 The multiple sequence alignment is not included in this repository as per the terms of the GISAID consortium for sharing sequence data ('You agree not to distribute Data to any third party other than Authorized Users as contemplated by this Agreement.') In order to obtain access to the assemblies in the multiple sequence alignment, you can register as a user of GISAID [here](https://www.gisaid.org/registration/register/). 
