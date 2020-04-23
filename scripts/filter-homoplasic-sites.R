@@ -108,7 +108,8 @@ for (h in homoplasic.counts.filt.HQ$bp){
   print(h)
   h.df <- getCopheneticDistributionForHomoplasy(site = h)
   h.plot <- plotHomoplasyCopheneticDistribution(h.df, title=getTitleString(h))
-  ggsave(h.plot, file=paste0('../figures/cophenetic-distributions/', h, '.pdf'))
+  ggsave(h.plot, file=paste0('../figures/cophenetic-distributions/', h, '.pdf'), 
+         width=9, height=6)
 }
 
 
