@@ -1,18 +1,24 @@
-Department of Medical Sciences, Ministry of Public Health, Thailand 2. Thai Red Cross Emerging Infectious Diseases - Health Science Centre 3. Department of Disease Control, Ministry of Public Health, Thailand
+1. Department of Medical Sciences, Ministry of Public Health, Thailand 2. Thai Red Cross Emerging Infectious Diseases - Health Science Centre 3. Department of Disease Control, Ministry of Public Health, Thailand
+African Centre of Excellence for Genomics of Infectious Diseases (ACEGID), Redeemer's University, Ede, Osun State, Nigeria
 AIDS Vaccine Research Laboratories
 Alaska State Virology Laboratory
 Andersen Lab, The Scripps Research Institute
 ARGO Open Lab Platform for Genome sequencing
 Arizona State University
 BCCDC Public Health Laboratory
+Beijing Genomics Institute (BGI)
 Beijing Institute of Microbiology and Epidemiology
 Bergthaler laboratory, CeMM Research Center for Molecular Medicine of the Austrian Academy of Sciences
 BGI & Institute of Microbiology, Chinese Academy of Sciences & Shandong First Medical University & Shandong Academy of Medical Sciences & General Hospital of Central Theater Command of People's Liberation Army of China
 BioInfoExperts, LLC
+Bioinformatics Laboratory
+Bioinformatics Laboratory - LNCC
+Bioinformatics Laboratory / LNCC
 Bioinformatics Research Group, Szentagothai Research Centre
 Bioinformatics Research Group, Szentagothai Research Centre, University of Pecs
 Biomedical Research Center (BRC)
 Bundeswehr Institute of Microbiology
+Bureau of Laboratories
 Center for Global Health, University of New Mexico Health Sciences Center
 Center of Medical Microbiology, Virology, and Hospital Hygiene, University of Duesseldorf
 Centers for Disease Control, R.O.C. (Taiwan)
@@ -24,6 +30,7 @@ Chongqing Municipal Center for Disease Control and Prevention
 Clinical Diagnostics Laboratory, Diagnostic & Experimental Pathology, Lilly Research Laboratories
 Clinical Laboratory
 CNR Virus des Infections Respiratoires - France SUD
+Collaboration between the University of Melbourne at The Peter Doherty Institute for Infection and Immunity, and the Victorian Infectious Disease Reference Laboratory
 COVID-19 Genomics UK (COG-UK) Consortium
 COVID-19 Network Investigations (CONI) Alliance
 Dasman diabetes Institute
@@ -46,6 +53,7 @@ Department of Microbiology, Institute for Viral Diseases, College of Medicine, K
 Department of Microbiology, PathWest QEII Medical Centre
 Department of Microbiology, Zhejiang Provincial Center for Disease Control and Prevention
 Department of Pathology and Medicine, New York University School of Medicine
+Department of Virology Faculty of Medicine, Medicum University of Helsinki
 Department of Virology, Faculty of Medicine, University of Helsinki, Helsinki, Finland
 Department of Virology, University of Helsinki and Helsinki University Hospital, Helsinki, Finland
 Departments of Pathology and Medicine, New York University School of Medicine
@@ -62,12 +70,14 @@ Gen Era Diagnostics Inc.
 Genomic Laboratory (GLAB), Istanbul Technical University
 GIGA Medical Genomics
 Gorgas Memorial Institute for Health Studies
+Grubaugh Lab - Yale School of Public Health
 Guangdong Provincial Center for Disease Control and Prevention
 Guangdong Provincial Center for Diseases Control and Prevention
 Guangdong Provincial Institution of Public Health
 Gujarat Biotechnology Research Centre
 Gujarat Biotechnology Research Centre, Gandhinagar
 Hangzhou Center for Disease and Control Microbiology Lab
+Hangzhou Center for Disease Control and Prevention
 Hangzhou Center for Diseases Control and Prevention
 Hong Kong Department of Health
 Hopitaux universitaires de Geneve Laboratoire de Virologie
@@ -75,9 +85,13 @@ Hospital Universitari Vall d'Hebron (HUVH) - Vall d'Hebron Research Institute (V
 Hospital Universitario 12 de Octubre
 Hospital Universitario La Paz
 Hubei Provincial Center for Disease Control and Prevention
+Human Genetic Research Center
 Indian Council of Medical Research-National Institute of Virology, Microbial Containment Complex
 Infectious Disease Control Center
+Infectious Disease Research Department, King Abdullah International Medical Research Center (KAIMRC)
 INMI Lazzaro Spallanzani IRCCS
+Insepction Center of Hangzhou Center for Disease Control and Prevention
+Inspection Center of Hanghzou Center for Disease Control and Prevention
 Inspection Center of Hangzhou Center for Disease Control and Prevention
 Institut Pasteur de Dakar
 Institute information  KU Leuven, Clinical and Epidemiological Virology
@@ -85,6 +99,8 @@ Institute of Applied Biotechnologies a.s.
 Institute of Environmental Science and Research (ESR)
 Institute of Medical Virology, University of Zurich
 Institute of Microbiology and Immunology, Faculty of Medicine, University of Ljubljana
+Institute of Microbiology Universidad San Francisco de Quito
+Institute of Microbiology, Universidad San Francisco de Quito
 Institute of Pathogen Biology, Chinese Academy of Medical Sciences & Peking Union Medical College
 Institute of Viral Disease Control and Prevention, China CDC
 Institute of Virology, Biomedical Research Center of the Slovak Academy of Sciences, Bratislava; Comenius University Science Park, Bratislava
@@ -92,16 +108,19 @@ Instituto Adolfo Lutz Interdisciplinary Procedures Center Strategic Laboratory
 Instituto Adolfo Lutz, Interdiciplinary Procedures Center, Strategic Laboratory
 Instituto Adolfo Lutz, Interdisciplinary Procedures Center, Strategic Laboratory
 Instituto de Diagnostico y Referencia Epidemiologicos
+Instituto de Diagnostico y Referencia Epidemiologicos (INDRE)
 Instituto de Salud Carlos III
 Instituto de Salud Publica de Chile
 Instituto Gulbenkian de Ciencia
 Instituto Nacional de Ciencias Medicas y Nutricion
 Instituto Nacional de Ciencias Medicas y Nutricion Salvador Zubiran
 Instituto Nacional de Enfermedades Respiratorias
+Instituto Nacional de Salud Universidad Cooperativa de Colombia Instituto Alexander von Humboldt Imperial College-London London School of Hygiene & Tropical Medicine
 Instituto Nacional de Salud, Universidad Cooperativa de Colombia, Instituto Alexander von Humboldt, Imperial College-London, London School of Hygiene & Tropical Medicine
 Instituto Nacional de Saude (INSA)
 Instituto Nacional Enfermedades Infecciosas C.G.Malbran
 Instituto Oswaldo Cruz FIOCRUZ - Laboratory of Respiratory Viruses and Measles (LVRS)
+IrsiCaixa AIDS Research Lab
 Israel Institute for Biological Research
 Istituto Zooprofilattico Sperimentale dell'Abruzzo e Molise "G. Caporale"
 Istituto Zooprofilattico Sperimentale dell'Abruzzo e Molise "G.Caporale"
@@ -121,7 +140,9 @@ Laboratoire de virologie - Ecole Nationale Veterinaire de Toulouse
 Laboratoire National de Sante, Microbiology, Epidemiology and Microbial Genomics
 Laboratoire Nationale de Sante, Microbiology, Epidemiology and Microbial Genomics
 Laboratoire Virpath, CIRI U111, UCBL1, INSERM, CNRS, ENS Lyon
+Laboratorio Central de Epidemiologia-DLVIE / Laboratorio de Secuenciacion-Centro de Instrumentos. Instituto Mexicano del Seguro Social
 Laboratorio de Ecologia de Doencas Transmissiveis na Amazonia, Instituto Leonidas e Maria Deane - Fiocruz Amazonia
+Laboratorio de Referencia Nacional de Biotecnologia y Biologia Molecular.  Instituto Nacional de Salud Peru
 Laboratorio de Referencia Nacional de Biotecnologia y Biologia Molecular.Instituto Nacional de Salud.Peru
 Laboratorio di Microbiologia e Virologia, Universita Vita-Salute San Raffaele, Milano
 Laboratory for Functional Genome Analysis, Dept. Genomics, Gene Center of the LMU Munich
@@ -136,11 +157,15 @@ Li Ka Shing Faculty of Medicine, The University of Hong Kong
 Malaysia Genome Institute
 Mason Lab
 Microbial Genomics Core Lab, National Taiwan University Centers of Genomic and Precision Medicine
+Microbial Genomics Laboratory, Institut Pasteur Montevideo
+Microbial Genomics Laboratory, Institut Pasteur Montevideo, Uruguay
 Microbiological Diagnostic Unit Public Health Laboratory
 Microbiological Diagnostic Unit Public Health Laboratory and Victorian Infectious Diseases Reference Laboratory, Doherty Institute
 Microbiology and Immunology
 Microbiology and Immunology department
+Ministry of Health Turkey
 Minnesota Department of Health, Public Health Laboratory
+Molecular Biology and Biotechnology Lab II
 MRC-University of Glasgow Centre for Virus Research
 MSHS Pathogen Surveillance Program
 National Centre for Infectious Diseases, National Centre for Infectious Diseases
@@ -151,6 +176,7 @@ National Influenza Center, National Institute of Hygiene and Epidemiology (NIHE)
 National Institute for Communicable Disease Control and Prevention (ICDC) Chinese Center for Disease Control and Prevention (China CDC)
 National Institute for Communicable Diseases of the National Health Laboratory Service
 National Institute for Viral Disease Control & Prevention, CCDC
+National Institute for Viral Disease Control & Prevention, China CDC
 National Institute for Viral Disease Control and Prevention, China CDC
 National Microbiology Laboratory
 National Public Health Laboratory
@@ -180,11 +206,15 @@ Ryota Kumagai Tokyo Metropolitan Institute of Public Health
 Saitama Medical University
 School of Public Health, The University of Hon g Kong
 School of Public Health, The University of Hong Kong
+SCSFRI, South China Sea Fisheries Research Institute, Chinese Academy of Fishery Sciences (SCSFRI, CAFS)
 Seattle Flu Study
 Second Hospital of Anhui Medical University
 Sequencing and Bioinformatics Service and Molecular Epidemiology Research Group. FISABIO-Public Health
 Sequencing and Bioinformatics Service and Molecular Epidemiology Research Group. FISABIO-Public Health.
+Sequencing and Bioinformatics Service. Molecular Epidemiology Laboratory. FISABIO-Public Health
 Shenzhen Key Laboratory of Pathogen and Immunity, National Clinical Research Center for Infectious Disease, Shenzhen Third People's Hospital
+Shenzhen Key Laboratory of Pathogen and Immunity, National Clinical Research Center for Infectious Disease,Shenzhen Third People's Hospital
+South China Agricultural University
 State Key Laboratory for Diagnosis and Treatment of Infectious Diseases, National Clinical Research Center for Infectious Diseases, First Affiliated Hospital, Zhejiang University School of Medicine, Hangzhou, China 310003
 State Key Laboratory for Diagnosis and Treatment of Infectious Diseases, National Clinical Research Center for Infectious Diseases, First Affiliated Hospital, Zhejiang University School of Medicine, Hangzhou, China. 310003
 State Key Laboratory for Emerging Infectious Diseases Department of Microbiology Li Ka Shing Faculty of Medicine The University of Hong Kong
@@ -194,10 +224,12 @@ Statens Serum Institute
 Swiss National Reference Centre for Influenza
 Taiwan Centers for Disease Control
 Takayuki Hishiki Kanagawa Prefectural Institute of Public Health
+Takayuki Hishiki Kanagawa Prefectural Institute of Public Health, Department of Microbiology
 Technology Centre, Guangzhou Customs
 TGen North
 the First Affiliated Hospital of Guangzhou Medical University & BGI-Shenzhen
 The First Affiliated Hospital of Guangzhou Medical University & BGI-Shenzhen
+The National Laboratory of Health, Environment and Food, Maribor, Slovenia
 The Ohio State University James Molecular lab
 The Ohio State University-James Molecular Lab at Polaris
 The University of Hong Kong
@@ -205,6 +237,10 @@ TSGH-CP molecular lab
 UCD National Virus Reference Laboratory
 Unit for Biological Agents, Department for CBRN Defence and Security, Swedish Defence Research Agency
 Unit for Laboratory Development and Technology Transfer, Public Health Agency of Sweden
+University Hospital Basel, Clinical Bacteriology
+University Hospital Basel, Clinical Virology
+University Hospital Basel, Labormedizin
+University of California, San Francisco
 University of Otago
 University of Washington Virology Lab
 University of Wisconsin - Madison AIDS Vaccine Research Laboratories
@@ -220,10 +256,14 @@ ViFU
 Virginia Division of Consolidated Laboratories
 ViroGenetics - BSL3 Laboratory of Virology; Human Genome Variation Research Group & Genomics Centre MCB; Bioinformatics Research Group  Department of Virology
 Virology and Legal Medicine Laboratories, Department of Biomedical Sciences and Public Health, University Politecnica delle Marche
+Virology Department, Royal Infirmary of Edinburgh, NHS Lothian
 Virology Laboratory, Scientific Department, Army Medical Center
 Virology Unit, Institut Pasteur du Cambodge (Sequencing done by: Jessica E Manning/Jennifer A Bohl at Malaria and Vector Research Research Laboratory, National Institute of Allergy and Infectious Diseases and Vida Ahyong from Chan-Zuckerberg Biohub)
+WACCBIP, University of Ghana
+Wadsworth Center, New York State Department of Health
 Wadsworth Center, New York State Department.of Health
 Weifang Center for Disease Control and Prevention & BGI-Shenzhen
 WHO National Influenza Centre Russian Federation
+Worobey Lab on behalf of the Arizona COVID-19 Genomics Union
 Wuhan Institute of Virology, Chinese Academy of Sciences
 Zhejiang Provincial Center for Disease Control and Prevention
