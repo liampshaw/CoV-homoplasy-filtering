@@ -8,7 +8,7 @@ It needs as input:
 * A multiple sequence alignment 
 * A dataset of homoplasy counts (generated with MPBoot - HomoplasyFinder)
 
-The main script `filter-homoplasic-sites.R` is run from the `scripts` directory. It assumes that you have a `data` directory with your input data and that the names of isolates in the tree and alignment are the same. As the script was developed for a specific analysis at speed, it will almost certainly break on new data. Please use with caution. 
+The main script `filter-homoplasic-sites.R` is run from the `scripts` directory. It assumes that you have a `data` directory with your input data and that the names of isolates in the tree and alignment are the same. As the script was developed for a specific analysis at speed, it will almost certainly break on new data. (Currently there is some hacky stuff to make sure names are the same, to be updated to work on a general dataset.) Please use with caution! 
 
 Some of the outputs:
 
