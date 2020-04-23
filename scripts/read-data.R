@@ -1,5 +1,5 @@
 # Read in tree
-tree <- read.tree('../data/gisaid_cov2020_sequences.QC.human.aln.tree')
+tree <- read.tree('../data/gisaid_cov2020_sequences.QC.human.filter.aln.raxml.ROOT.tree')
 tree <- drop.tip(tree, tip='hCoV-19/Wuhan-Hu-1/2019|EPI_ISL_402125') # drop outgroup
 # rename tree tips to use GISAID EPI ID
 tree$tip.label <- gsub("\\|.*", "", gsub(".*\\|EPI", "EPI", tree$tip.label))
@@ -34,6 +34,16 @@ snp.counts <- read.csv('../data/SNP_homoplasy_counts_table.filter.csv',
                        header = T, 
                        stringsAsFactors = F,
                        sep = '\t')
+
+# Regenerate SNP counts from alignment
+# Get all SNP counts
+counts <- c()
+for (i in 1:GENOME.LENGTH){
+  print(i)
+  counts <- c(counts, getSNPcount(aln, i))
+}
+snp.counts$SNP <- counts
+
 
 # Read in isolate metadata
 isolate.metadata <- read.csv('../data/metadata.tsv',

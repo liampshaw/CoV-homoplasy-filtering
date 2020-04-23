@@ -149,3 +149,10 @@ theme_basic <- function () {
       panel.grid=element_blank()
     )
 }
+
+# Count number of Ns adjacent to a site
+getAdjacentNscore <- function(site, isolate, fasta=aln){
+  character.region <- strsplit(substr(aln$seq[[which(aln$nam==isolate)]], start=site-2, stop=site+2), split='')[[1]]
+  character.region <- character.region[c(1,2,4,5)]
+  return(length(grep("n", character.region)))
+}

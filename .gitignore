@@ -5,3 +5,4 @@ scripts/*pdf
 scripts/*Rhistory
 .DS_Store
 figures/cophenetic-distributions/*pdf
+not-for-sharing/*
