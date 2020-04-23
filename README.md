@@ -30,7 +30,7 @@ The main script `filter-homoplasic-sites.R` is run from within the `scripts` dir
  
 These thresholds can be changed in the main script. See manuscript for more discussion of the rationale. 
 
-For the avoidance of doubt: it is possible that even homoplasies which pass these filtering thresholds may be artefactual/spurious, so please use with caution.  
+It is possible that even homoplasies which pass these filtering thresholds may be artefactual/spurious, so please use and interpret results with caution.
 
 ## Outputs
 
