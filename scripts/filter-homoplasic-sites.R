@@ -23,6 +23,7 @@ HOMOPLASY.COUNTS.FILE <- '../input-data/input_homoplasy_finder.csv'
 FIGURE.OUTPUT.FOLDER <- '../figures'
 DATA.OUTPUT.FOLDER <- '../output-data'
 dir.create(paste0(FIGURE.OUTPUT.FOLDER))
+dir.create(paste0(FIGURE.OUTPUT.FOLDER, '/cophenetic-distributions/'))
 dir.create(paste0(DATA.OUTPUT.FOLDER))
 
 source('functions.R')
@@ -32,7 +33,7 @@ source('read-data.R')
 all.homoplasic.sites <- snp.counts[which(snp.counts$Min.No.ChangesonTree>0),"bp"]
 
 # 1. Histogram of all homoplasic sites by position in genome
-pdf('../figures/homoplasic-sites-histogram-position.pdf')
+pdf(paste0(FIGURE.OUTPUT.FOLDER, '/homoplasic-sites-histogram-position.pdf'))
 hist(all.homoplasic.sites, col='black', xlab='Position in genome', main='',
       breaks=seq(0, 30000, 500))
 dev.off()
@@ -76,7 +77,7 @@ homoplasic.counts$N.isolates.with.homoplasy <- homoplasic.counts$N.nearest.neigh
 homoplasic.counts$proportion.nearest.neighbour.has.homoplasy <- homoplasic.counts$N.nearest.neighbour.has.homoplasy/homoplasic.counts$N.isolates.with.homoplasy
 
 # Histogram of these distances
-pdf('../figures/histogram-homoplasic-sites-nearest-neighbour-proportion-all-homoplasies.pdf')
+pdf(paste0(FIGURE.OUTPUT.FOLDER, '/histogram-homoplasic-sites-nearest-neighbour-proportion-all-homoplasies.pdf'))
 hist(homoplasic.counts$proportion.nearest.neighbour.has.homoplasy, 
      breaks=100, 
      col='black', 
@@ -120,8 +121,9 @@ for (h in homoplasic.counts.filt.HQ$bp){
   print(h)
   h.df <- getCopheneticDistributionForHomoplasy(site = h)
   h.plot <- plotHomoplasyCopheneticDistribution(h.df, title=getTitleString(h))
-  ggsave(h.plot, file=paste0('../figures/cophenetic-distributions/', h, '.pdf'), 
+  ggsave(h.plot, file=paste0(FIGURE.OUTPUT.FOLDER, '/cophenetic-distributions/', h, '.pdf'), 
          width=9, height=6)
 }
+
 
 
