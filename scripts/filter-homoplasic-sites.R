@@ -91,10 +91,6 @@ write.csv(homoplasic.counts, file=paste0(DATA.OUTPUT.FOLDER, '/all-homoplasic-si
 # 4. Make plots 
 
 # Further high-quality homoplasy thresholds
-#DISTANCE.TO.HOMOPLASY <- 10
-# High-quality homoplasy thresholds
-#PROPORTION.NEAREST.NEIGHBOUR.HAS.HOMOPLASY <- 0.4
-# Exclude the homoplasies with < 0.1 proportion (i.e. the large peak at 0)
 N <- 500 
 homoplasic.counts.filt <- homoplasic.counts[which(homoplasic.counts$bp>N & homoplasic.counts$bp<GENOME.LENGTH-N),]
 pdf(paste0(FIGURE.OUTPUT.FOLDER, '/histogram-homoplasic-sites-nearest-neighbour-proportion-excluding-first-last-500-bp.pdf'))
@@ -105,7 +101,7 @@ hist(homoplasic.counts$proportion.nearest.neighbour.has.homoplasy,
      main='')
 dev.off()
 
-NEAREST.HOMOPLASY.PROP <- 0.1
+NEAREST.HOMOPLASY.PROP <- 0.4
 homoplasic.counts.filt.HQ <- homoplasic.counts.filt[which(homoplasic.counts.filt$proportion.nearest.neighbour.has.homoplasy>NEAREST.HOMOPLASY.PROP),]
 # Number of isolates with homoplasy threshold
 N.ISOLATES.WITH.HOMOPLASY <- 10
@@ -124,6 +120,3 @@ for (h in homoplasic.counts.filt.HQ$bp){
   ggsave(h.plot, file=paste0(FIGURE.OUTPUT.FOLDER, '/cophenetic-distributions/', h, '.pdf'), 
          width=9, height=6)
 }
-
-
-
