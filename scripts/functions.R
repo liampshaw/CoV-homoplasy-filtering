@@ -152,10 +152,25 @@ theme_basic <- function () {
 
 # Count number of Ns adjacent to a site
 getAdjacentNscore <- function(site, isolate, region=2, fasta=aln){
-  character.region <- strsplit(substr(aln$seq[[which(aln$nam==isolate)]], start=site-region, stop=site+region), split='')[[1]]
+  bp.start <- min(0, site-region)
+  bp.end <- min(29903, site+region)
+  character.region <- strsplit(substr(aln$seq[[which(aln$nam==isolate)]], start=bp.start, stop=bp.end), split='')[[1]]
   character.region <- character.region[c(1,2,4,5)]
-  return(length(grep("n", character.region)))
+  return(length(grep("n", character.region, ignore.case = TRUE)))
 }
+
+# Nearest N
+getDistanceNearestN <- function(site, isolate, fasta=aln){
+  genome <- strsplit(aln$seq[[which(aln$nam==isolate)]], split='')[[1]]
+  if (length(N_positions)==0){
+    return(29903)
+  }
+  else{
+      N_positions <- grep("n", genome, ignore.case = TRUE)
+      return(min(abs(site-N_positions)))
+  }
+}
+
 
 # Get SNP count
 getSNPcount <- function(fasta, site){
