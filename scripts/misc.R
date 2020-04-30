@@ -16,5 +16,5 @@ random.sites[which(random.sites %in% MASKED.REGIONS)]
 random.dist <- sapply(random.sites, function(x) {print(x); getNsAtSite(x)})
 
 par(mfrow=c(2,1))
-hist(h, breaks=seq(0, 8000, 5), col='black', xlab='Number of isolates with N at site', ylab='Proportion of homoplasic sites', main='a. Filtered homoplasic sites (n=198)', probability = TRUE, xlim=c(0,300), ylim=c(0,0.2))
-hist(r, col='red',  breaks=seq(0, 8000, 5),  xlab='Number of isolates with N at site', ylab='Proportion of homoplasic sites', main='b. Random sites (excluding masked regions)', probability = TRUE, xlim=c(0,300), ylim=c(0,0.2))
+hist(h, breaks=seq(0, 500, 10), col='black', xlab='Number of isolates with N at site', ylab='Proportion of homoplasic sites', main='a. Filtered homoplasic sites (n=198)', probability = TRUE, xlim=c(0,300), ylim=c(0,0.1))
+hist(random.dist, col='red',  breaks=seq(0, 500, 10),  xlab='Number of isolates with N at site', ylab='Proportion of homoplasic sites', main='b. Random sites (excluding masked regions)', probability = TRUE, xlim=c(0,300), ylim=c(0,0.11))
