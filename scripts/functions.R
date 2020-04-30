@@ -55,7 +55,7 @@ plotHomoplasyCopheneticDistribution <- function(homoplasy.df, title=""){
     ggtitle(title)+
     theme_basic()
 }
-getTitleString <- function(site, snp.df=homoplasic.counts.filt){
+getTitleString <- function(site, snp.df=homoplasic.counts.filt.HQ){
   # Useful information for a plot title
   consistency <- myround(snp.df[which(snp.df$bp==site), "consistency_index"], 3)
   protein <- snp.df[which(snp.df$bp==site), "Protein"]
@@ -63,17 +63,18 @@ getTitleString <- function(site, snp.df=homoplasic.counts.filt){
   proportion.nearest.neighbour <- myround(snp.df[which(snp.df$bp==site), "proportion.nearest.neighbour.has.homoplasy"], 3)
   neighbour.has.homoplasy <- snp.df[which(snp.df$bp==site), "N.nearest.neighbour.has.homoplasy"]
   total.isolates <- snp.df[which(snp.df$bp==site), "N.nearest.neighbour.has.homoplasy"]+snp.df[which(snp.df$bp==site), "N.nearest.neighbour.lacks.homoplasy"]+snp.df[which(snp.df$bp==site), "N.nearest.neighbour.intermediate"]
+  number.labs <- snp.df[which(snp.df$bp==site), "N.originating.labs"]
+  number.countries <- snp.df[which(snp.df$bp==site), "N.countries"]
   
-  homoplasic.counts.filt$N.nearest.neighbour.has.homoplasy
   
   nearest.homoplasic.site <- snp.df[which(snp.df$bp==site), "dist.nearest.homoplasy"]
-  
   
   return(paste0("Site ", site,
                 ", Region: ", protein, 
                 "\nInferred minimum changes on tree: ", changes,
                 "\nConsistency: ", consistency, ", Nearest homoplasic site is ", nearest.homoplasic.site, "bp away",
-                "\nProp. nearest neighbour has homoplasy: ", proportion.nearest.neighbour, " (", neighbour.has.homoplasy, "/", total.isolates, ")"))
+                "\nProp. nearest neighbour has homoplasy: ", proportion.nearest.neighbour, " (", neighbour.has.homoplasy, "/", total.isolates, ")", 
+                "\nSeen from ", number.labs, " originating labs across ", number.countries, " countries."))
 }
 
 # Nearest neighbour in tree for an isolate
