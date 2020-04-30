@@ -7,26 +7,18 @@ library(broman)
 library(cowplot)
 library(dplyr)
 library(chron)
+source('functions.R')
 
 # Parameters for running the script. 
-# Note that listed input files are *NOT INCLUDED* in this repository
-# Length of the SARS-CoV-2 genome
-GENOME.LENGTH <- 29903
-# RaxML tree file
-TREE.FILE <- '../input-data/raxML_input_tree.tree'
-# Multiple sequence alignment file, with ambiguous sites removed and replaced with N
-ALIGNMENT.FILE <- '../input-data/input_alignment.aln'
-# Homoplasy file (from HomoplasyFinder output)
-HOMOPLASY.COUNTS.FILE <- '../input-data/input_homoplasy_finder.csv'
+# Note that some listed input files in input-parameters.R are *NOT INCLUDED* in this repository
+source('../input-data/input-parameters.R')
 
-# Output folders
-FIGURE.OUTPUT.FOLDER <- '../figures'
-DATA.OUTPUT.FOLDER <- '../output-data'
+# Make directories
 dir.create(paste0(FIGURE.OUTPUT.FOLDER))
 dir.create(paste0(FIGURE.OUTPUT.FOLDER, '/cophenetic-distributions/'))
 dir.create(paste0(DATA.OUTPUT.FOLDER))
 
-source('functions.R')
+# Read in data
 source('read-data.R')
 
 # Select all homoplasies (should all have Min.No.ChangesonTree>0 anyway, but good to check)
@@ -38,8 +30,9 @@ hist(all.homoplasic.sites, col='black', xlab='Position in genome', main='',
       breaks=seq(0, 30000, 500))
 dev.off()
 
-# Create dataset
-homoplasic.counts <- snp.counts[which(snp.counts$Min.No.ChangesonTree>0),]
+# Create dataset, ignoring masked regions
+homoplasic.counts <- snp.counts[which(snp.counts$Min.No.ChangesonTree>0 & 
+                                                                !snp.counts$bp %in% MASKED.REGIONS),]
 
 # Add nearest potential homoplasy 
 homoplasic.counts$dist.nearest.homoplasy <- sapply(homoplasic.counts$bp, 
@@ -54,22 +47,27 @@ homoplasic.counts$dist.nearest.homoplasy <- sapply(homoplasic.counts$bp,
 homoplasic.counts$N.nearest.neighbour.has.homoplasy <- NA
 homoplasic.counts$N.nearest.neighbour.lacks.homoplasy <- NA
 homoplasic.counts$N.nearest.neighbour.intermediate <- NA
+homoplasic.counts$proportion.with.N.within.local.region <- NA
+homoplasic.counts$isolates.in.dataset.with.N <- NA
 
 for (i in seq(1, nrow(homoplasic.counts))){
   h <- homoplasic.counts$bp[i]
   print(h)
   isolates <- getIsolatesWithMinorVariant(h)
-  results <- sapply(isolates, 
-                    function(x) nearestNeighbourHasVariant(x, h))
-  homoplasic.counts$N.nearest.neighbour.lacks.homoplasy[i] <- length(results[which(results==0)])
-  homoplasic.counts$N.nearest.neighbour.has.homoplasy[i] <- length(results[which(results==1)])
-  homoplasic.counts$N.nearest.neighbour.intermediate[i] <- length(results[which(results!=1 & results!=0)])
-  
-  # Add adjacent N score
-  n.scores <- sapply(isolates, 
-                    function(x) getAdjacentNscore(isolate = x, site = h))
-  homoplasic.counts$proportion.with.N.within.2.bp[i] <- length(n.scores[which(n.scores>0)])/length(n.scores)
-  
+  if (length(isolates)!=0){
+    results <- sapply(isolates, 
+                      function(x) nearestNeighbourHasVariant(x, h))
+    homoplasic.counts$N.nearest.neighbour.lacks.homoplasy[i] <- length(results[which(results==0)])
+    homoplasic.counts$N.nearest.neighbour.has.homoplasy[i] <- length(results[which(results==1)])
+    homoplasic.counts$N.nearest.neighbour.intermediate[i] <- length(results[which(results!=1 & results!=0)])
+    
+    # Add adjacent N score
+    n.scores <- sapply(isolates, 
+                       function(x) getAdjacentNscore(isolate = x, site = h, region = LOCAL.REGION))
+    homoplasic.counts$proportion.with.N.within.local.region[i] <- length(n.scores[which(n.scores>0)])/length(n.scores)
+    
+  }
+
   homoplasic.counts$isolates.in.dataset.with.N[i] <- length(grep("n", sapply(aln$nam, function(x) substr(aln$seq[[which(aln$nam ==x)]], h, h))))
 }
 # Calculate proportion of isolates with homoplasy with nearest neighbour with the homoplasy
@@ -84,13 +82,7 @@ hist(homoplasic.counts$proportion.nearest.neighbour.has.homoplasy,
      xlab='Proportion of isolates where nearest neighbour in tree has homoplasy',
      main='')
 dev.off()
-
-# Write to file
-write.csv(homoplasic.counts, file=paste0(DATA.OUTPUT.FOLDER, '/all-homoplasic-sites-table.csv'))
-
-# 4. Make plots 
-
-# Further high-quality homoplasy thresholds
+# Show excluding start/end of genome
 N <- 500 
 homoplasic.counts.filt <- homoplasic.counts[which(homoplasic.counts$bp>N & homoplasic.counts$bp<GENOME.LENGTH-N),]
 pdf(paste0(FIGURE.OUTPUT.FOLDER, '/histogram-homoplasic-sites-nearest-neighbour-proportion-excluding-first-last-500-bp.pdf'))
@@ -101,18 +93,24 @@ hist(homoplasic.counts$proportion.nearest.neighbour.has.homoplasy,
      main='')
 dev.off()
 
-NEAREST.HOMOPLASY.PROP <- 0.4
-homoplasic.counts.filt.HQ <- homoplasic.counts.filt[which(homoplasic.counts.filt$proportion.nearest.neighbour.has.homoplasy>NEAREST.HOMOPLASY.PROP),]
-# Number of isolates with homoplasy threshold
-N.ISOLATES.WITH.HOMOPLASY <- 10
-homoplasic.counts.filt.HQ <- homoplasic.counts.filt.HQ[which(  homoplasic.counts.filt.HQ$N.isolates.with.homoplasy>N.ISOLATES.WITH.HOMOPLASY),]
-# No isolates with homoplasy with N in surround 4 bp
-homoplasic.counts.filt.HQ <- homoplasic.counts.filt.HQ[which(  homoplasic.counts.filt.HQ$proportion.with.N.within.2.bp==0),]
+# Write to file
+write.csv(homoplasic.counts, file=paste0(DATA.OUTPUT.FOLDER, '/all-homoplasic-sites-table.csv'))
 
+
+# 4. Further homoplasy filtering thresholds
+
+# Proportion of nearest neighbours with homoplasy (p_nn in manuscript)
+homoplasic.counts.filt.HQ <- homoplasic.counts.filt[which(homoplasic.counts.filt$proportion.nearest.neighbour.has.homoplasy>NEAREST.HOMOPLASY.PROP),]
+# Number of isolates with homoplasy 
+homoplasic.counts.filt.HQ <- homoplasic.counts.filt.HQ[which(  homoplasic.counts.filt.HQ$N.isolates.with.homoplasy>N.ISOLATES.WITH.HOMOPLASY),]
+# No isolates with homoplasy with N in local region
+homoplasic.counts.filt.HQ <- homoplasic.counts.filt.HQ[which(  homoplasic.counts.filt.HQ$proportion.with.N.within.local.region==0),]
+
+# Write to file
 write.csv(homoplasic.counts.filt.HQ, file=paste0(DATA.OUTPUT.FOLDER, '/filtered-homoplasic-sites-table.csv'))
 
-
-# For these, make plots
+# 5. Make plots 
+# For these filtered homoplasies, make plots
 for (h in homoplasic.counts.filt.HQ$bp){
   print(h)
   h.df <- getCopheneticDistributionForHomoplasy(site = h)
