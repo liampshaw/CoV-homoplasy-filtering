@@ -63,7 +63,7 @@ getTitleString <- function(site, snp.df=homoplasic.counts.filt.HQ){
   proportion.nearest.neighbour <- myround(snp.df[which(snp.df$bp==site), "proportion.nearest.neighbour.has.homoplasy"], 3)
   neighbour.has.homoplasy <- snp.df[which(snp.df$bp==site), "N.nearest.neighbour.has.homoplasy"]
   total.isolates <- snp.df[which(snp.df$bp==site), "N.nearest.neighbour.has.homoplasy"]+snp.df[which(snp.df$bp==site), "N.nearest.neighbour.lacks.homoplasy"]+snp.df[which(snp.df$bp==site), "N.nearest.neighbour.intermediate"]
-  number.labs <- snp.df[which(snp.df$bp==site), "N.originating.labs"]
+  number.labs <- snp.df[which(snp.df$bp==site), "N.submitting.labs"]
   number.countries <- snp.df[which(snp.df$bp==site), "N.countries"]
   
   
