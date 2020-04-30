@@ -152,11 +152,13 @@ theme_basic <- function () {
 
 # Count number of Ns adjacent to a site
 getAdjacentNscore <- function(site, isolate, region=2, fasta=aln){
-  bp.start <- min(0, site-region)
-  bp.end <- min(29903, site+region)
+  bp.start <- site-region
+  if (bp.start<0){ bp.start <- 0}
+  bp.end <- site+region
+  if (bp.start>29903){bp.end <- 29903}
   character.region <- strsplit(substr(aln$seq[[which(aln$nam==isolate)]], start=bp.start, stop=bp.end), split='')[[1]]
-  character.region <- character.region[c(1,2,4,5)]
-  return(length(grep("n", character.region, ignore.case = TRUE)))
+  character.region <- character.region[-round(length(character.region)/2)]
+  return(as.numeric(length(grep("n", character.region, ignore.case = TRUE))))
 }
 
 # Nearest N
