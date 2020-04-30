@@ -55,3 +55,5 @@ Outputs are stored in `figures` and `output-data`. They include:
 Underlying data (n=7666 assemblies) for the input files comes from the GISAID consortium. A full acknowledgements list of originating and submitting laboratories (as of April 23 2020) is available in `acknowledgements.tsv`.
 
 The tree and multiple sequence alignment are not included in this repository as per the terms of the GISAID consortium for sharing sequence data ('You agree not to distribute Data to any third party other than Authorized Users as contemplated by this Agreement.') In order to obtain access to the assemblies in the multiple sequence alignment, you can register as a user of GISAID [here](https://www.gisaid.org/registration/register/). 
+
+N.B. Protein annotations in the homoplasy count `input-data` file are based on the genbank file of Wuhan-Hu-1 (NCBI NC_045512.2) and might become out-of-date as future annotation changes. They are not used in any of the filtering. 
