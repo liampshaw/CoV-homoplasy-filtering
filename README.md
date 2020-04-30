@@ -15,19 +15,26 @@ The script takes input specified in `input-data/input-parameters.R`:
 * A phylogenetic tree - generated with RaxML from a multiple sequence alignment [not included, see below]
 * A multiple sequence alignment - generated from GISAID assemblies [not included, see below] 
 
-The main script `filter-homoplasic-sites.R` is run from within the `scripts` directory. It assumes that you have a `input-data` directory with your input data and that the names of isolates in the tree and alignment are the same. As the script was developed with a specific analysis in mind, it will **almost certainly break** on new data. Please use with caution if this is your intention. 
+The main script `filter-homoplasic-sites.R` is run from within the `scripts` directory. It assumes that you have a `input-data` directory with your input data and that the names of isolates in the tree and alignment are the same. 
+
+As the script was developed with a specific analysis in mind (n=7666 assemblies downloaded from GISAID as of April 19 2020), it will **almost certainly break** on new data. Please use with caution if this is your intention. 
 
 **A note on filtering thresholds.** There are several filtering thresholds used (see manuscript for more discussion).
 
-* Number of isolates with homoplasy. Default: **>8**  
+* Number of isolates with homoplasy.  
+**Default: >8**  
 *Rationale*: small numbers of isolates more likely to be due to random sequencing error. 8 is an arbitrary number equivalent to 0.1% of dataset (n=7666) 
-* Position *x* of homoplasy in genome. Default: **exclude masked sites: {{1, ..., 150}, 18529, 29849, 29851, 29853, {29853..29903}}** 
+* Position *x* of homoplasy in genome.  
+**Default: exclude masked sites: {{1, ..., 150}, 18529, 29849, 29851, 29853, {29853..29903}}** 
 *Rationale*: sequencing error appears more common at the start and end of the SARS-CoV-2 genome, causing high density of apparent homoplasies, and at other known sites. Taken from NextStrain masking. 
-* Proportion of isolates with homoplasy which have a nearest neighbour in the tree with the homoplasy: ranges between 0 (singleton isolates with homoplasy throughout tree) and 1 (clusters of isolates with homoplasy). Default: **>0.1**  
+* Proportion of isolates with homoplasy which have a nearest neighbour in the tree with the homoplasy: ranges between 0 (singleton isolates with homoplasy throughout tree) and 1 (clusters of isolates with homoplasy).  
+**Default: >0.1**  
 *Rationale*: apparent homoplasies caused by random sequencing error are *a priori* unlikely to cluster with each other in the tree. 
-* Proportion of isolates with the homoplasy which have at least one 'N' in the local region around the homoplasy. Default: **zero, 'local' defined as +/- 5bp**  
+* Proportion of isolates with the homoplasy which have at least one 'N' in the local region around the homoplasy.  
+**Default: zero, with 'local' defined as +/- 5bp**  
 *Rationale*: 'N' in local region could be suggestive of hard-to-sequence region. 
-* Number of submitting and originating labs. Default: **>1**  
+* Number of submitting and originating labs.  
+**Default: >1**  
 *Rationale*: homoplasies only present in isolates from a single originating or submitting lab could be due to batch effects.
  
 These thresholds can be changed in the main script. See manuscript for more discussion of the rationale. 
