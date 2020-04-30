@@ -6,3 +6,4 @@ scripts/*Rhistory
 .DS_Store
 figures/cophenetic-distributions/*pdf
 not-for-sharing/*
+input-data/metadata.tsv
