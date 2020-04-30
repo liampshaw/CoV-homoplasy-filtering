@@ -21,3 +21,4 @@ MASKED.REGIONS <- c(seq(1,150), seq(29853, 29903), 18529, 29849, 29851, 29853)
 NEAREST.HOMOPLASY.PROP <- 0.1 # p_nn
 N.ISOLATES.WITH.HOMOPLASY <- 8 # >0.1% of 7666 = 7.7, rounded up to 8
 LOCAL.REGION <- 5 # +/- number of bp to check around homoplasy for Ns
+N.SUBMITTING.LABS <- 1 # more than this many submitting labs in GISAID
