@@ -26,3 +26,6 @@ snp.counts$minor.variant.fraction <- sapply(as.character(snp.counts$bp),
 # takes a long time for each homoplasy plot
 # NB if dataset is smaller this may throw an error
 cophenetic.df.random <- cophenetic.df[sample(nrow(cophenetic.df),size = 100000),]
+
+# Read in metadata
+metadata <- read.csv(METADATA.FILE, sep='\t', header=T, stringsAsFactors = F)
