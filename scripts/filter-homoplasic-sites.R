@@ -139,3 +139,4 @@ for (h in homoplasic.counts.filt.HQ$bp){
   ggsave(h.plot, file=paste0(FIGURE.OUTPUT.FOLDER, '/cophenetic-distributions/', h, '.pdf'), 
          width=9, height=6)
 }
+
