@@ -83,15 +83,15 @@ hist(homoplasic.counts$proportion.nearest.neighbour.has.homoplasy,
      main='')
 dev.off()
 # Show excluding start/end of genome
-N <- 500 
-homoplasic.counts.filt <- homoplasic.counts[which(homoplasic.counts$bp>N & homoplasic.counts$bp<GENOME.LENGTH-N),]
-pdf(paste0(FIGURE.OUTPUT.FOLDER, '/histogram-homoplasic-sites-nearest-neighbour-proportion-excluding-first-last-500-bp.pdf'))
-hist(homoplasic.counts$proportion.nearest.neighbour.has.homoplasy, 
-     breaks=100, 
-     col='black', 
-     xlab='Proportion of isolates where nearest neighbour in tree has homoplasy',
-     main='')
-dev.off()
+# N <- 500 
+# homoplasic.counts.filt <- homoplasic.counts[which(homoplasic.counts$bp>N & homoplasic.counts$bp<GENOME.LENGTH-N),]
+# pdf(paste0(FIGURE.OUTPUT.FOLDER, '/histogram-homoplasic-sites-nearest-neighbour-proportion-excluding-first-last-500-bp.pdf'))
+# hist(homoplasic.counts$proportion.nearest.neighbour.has.homoplasy, 
+#      breaks=100, 
+#      col='black', 
+#      xlab='Proportion of isolates where nearest neighbour in tree has homoplasy',
+#      main='')
+# dev.off()
 
 # Write to file
 write.csv(homoplasic.counts, file=paste0(DATA.OUTPUT.FOLDER, '/all-homoplasic-sites-table.csv'))
@@ -100,7 +100,7 @@ write.csv(homoplasic.counts, file=paste0(DATA.OUTPUT.FOLDER, '/all-homoplasic-si
 # 4. Further homoplasy filtering thresholds
 
 # Proportion of nearest neighbours with homoplasy (p_nn in manuscript)
-homoplasic.counts.filt.HQ <- homoplasic.counts.filt[which(homoplasic.counts.filt$proportion.nearest.neighbour.has.homoplasy>NEAREST.HOMOPLASY.PROP),]
+homoplasic.counts.filt.HQ <- homoplasic.counts[which(homoplasic.counts$proportion.nearest.neighbour.has.homoplasy>NEAREST.HOMOPLASY.PROP),]
 # Number of isolates with homoplasy 
 homoplasic.counts.filt.HQ <- homoplasic.counts.filt.HQ[which(  homoplasic.counts.filt.HQ$N.isolates.with.homoplasy>N.ISOLATES.WITH.HOMOPLASY),]
 # No isolates with homoplasy with N in local region
@@ -109,15 +109,22 @@ homoplasic.counts.filt.HQ$proportion.with.N.within.local.region <- NULL # Don't 
 
 # Add number of originating labs & countries
 originating_labs <- c()
+submitting_labs <- c()
 countries <- c()
 for (site in homoplasic.counts.filt.HQ$bp){
   isolates <- getIsolatesWithMinorVariant(site)
   originating_labs <- c(originating_labs, length(table(metadata[which(metadata$gisaid_epi_isl %in% isolates), "originating_lab"])))
+  submitting_labs <- c(submitting_labs, length(table(metadata[which(metadata$gisaid_epi_isl %in% isolates), "submitting_lab"])))
+  
   countries <- c(countries, length(table(metadata[which(metadata$gisaid_epi_isl %in% isolates), "country"])))
   print(site)
 }
 homoplasic.counts.filt.HQ$N.countries <- countries
 homoplasic.counts.filt.HQ$N.originating.labs <- originating_labs
+homoplasic.counts.filt.HQ$N.submitting.labs <- submitting_labs
+
+# Filter to more than one submitting lab
+homoplasic.counts.filt.HQ <- homoplasic.counts.filt.HQ[which(homoplasic.counts.filt.HQ$N.submitting.labs>N.SUBMITTING.LABS),]
 
 # Write to file
 write.csv(homoplasic.counts.filt.HQ, file=paste0(DATA.OUTPUT.FOLDER, '/filtered-homoplasic-sites-table.csv'))
