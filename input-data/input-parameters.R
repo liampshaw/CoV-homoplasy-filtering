@@ -7,7 +7,7 @@ ALIGNMENT.FILE <- '../input-data/input_alignment.aln'
 # Homoplasy file (from HomoplasyFinder output)
 HOMOPLASY.COUNTS.FILE <- '../input-data/input_homoplasy_finder.csv'
 # Metadata file
-METADATA.FILE <- '~/Dropbox/Collaborations/COVID-19/homoplasies/data/metadata.tsv'
+METADATA.FILE <- '../input-data/metadata.tsv'
 
 
 # Output folders
