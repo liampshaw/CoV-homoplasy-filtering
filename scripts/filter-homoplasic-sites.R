@@ -105,6 +105,19 @@ homoplasic.counts.filt.HQ <- homoplasic.counts.filt[which(homoplasic.counts.filt
 homoplasic.counts.filt.HQ <- homoplasic.counts.filt.HQ[which(  homoplasic.counts.filt.HQ$N.isolates.with.homoplasy>N.ISOLATES.WITH.HOMOPLASY),]
 # No isolates with homoplasy with N in local region
 homoplasic.counts.filt.HQ <- homoplasic.counts.filt.HQ[which(  homoplasic.counts.filt.HQ$proportion.with.N.within.local.region==0),]
+homoplasic.counts.filt.HQ$proportion.with.N.within.local.region <- NULL # Don't need variable any more
+
+# Add number of originating labs & countries
+originating_labs <- c()
+countries <- c()
+for (site in homoplasic.counts.filt.HQ$bp){
+  isolates <- getIsolatesWithMinorVariant(site)
+  originating_labs <- c(originating_labs, length(table(metadata[which(metadata$gisaid_epi_isl %in% isolates), "originating_lab"])))
+  countries <- c(countries, length(table(metadata[which(metadata$gisaid_epi_isl %in% isolates), "country"])))
+  print(site)
+}
+homoplasic.counts.filt.HQ$N.countries <- countries
+homoplasic.counts.filt.HQ$N.originating.labs <- originating_labs
 
 # Write to file
 write.csv(homoplasic.counts.filt.HQ, file=paste0(DATA.OUTPUT.FOLDER, '/filtered-homoplasic-sites-table.csv'))
