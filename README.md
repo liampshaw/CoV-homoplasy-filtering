@@ -1,6 +1,6 @@
 # Homoplasy filtering
 
-This repository contains R scripts for filtering out spurious homoplasic sites from SARS-CoV-2 assemblies.
+This repository contains R scripts to attempt to filter out spurious homoplasic sites from SARS-CoV-2 assemblies.
 
 Associated publication: **to be included** 
 
@@ -39,7 +39,7 @@ As the script was developed with a specific analysis in mind (n=7666 assemblies 
  
 These thresholds can be changed in the main script. See manuscript for more discussion of the rationale. 
 
-It is possible that even homoplasies which pass these filtering thresholds may be artefactual/spurious, so please use and interpret results with caution.
+**It is possible that even homoplasies which pass these filtering thresholds may be artefactual/spurious, so please use and interpret results with caution.**
 
 ## Outputs
 
