@@ -39,7 +39,7 @@ As the script was developed with a specific analysis in mind (n=7666 assemblies 
  
 These thresholds can be changed in the main script. See manuscript for more discussion of the rationale. 
 
-**It is possible that even homoplasies which pass these filtering thresholds may be artefactual/spurious, so please use and interpret results with caution.**
+**It is possible that even homoplasies which pass these filtering thresholds may be artefactual/spurious, so please use and interpret results with caution.** For example, see a recent report from [de Maio et al.](https://www.researchgate.net/project/Phylodynamic-methods-for-SARS-CoV-2/update/5eac5299f155db0001f8cf0d).
 
 ## Outputs
 
