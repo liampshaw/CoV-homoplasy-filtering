@@ -1,7 +1,5 @@
 # Homoplasy filtering
 
-This repository contains R scripts to attempt to filter out spurious homoplasic sites from SARS-CoV-2 assemblies.
-
 For more information, please see the associated publication: 
  
 *Emergence of genomic diversity and recurrent mutations in SARS-CoV-2*  
@@ -11,6 +9,14 @@ L. van Dorp, M. Acman\*, D. Richard\*, L. P. Shaw\*, C. E. Ford, L. Ormond, C. J
 \* = equal contribution
 
 Liam Shaw, liam.philip.shaw@gmail.com
+
+## Overview
+
+Ongoing analyses of public SARS-CoV-2 genomes have identified a high number of recurrent mutations i.e. those occurring more than once on the phylogenetic tree ([homoplasies](https://en.wikipedia.org/wiki/Homoplasy)). These are potentially of interest for considering the ongoing evolution of SARS-CoV-2. However, apparent homoplasies can also be caused by sequencing errors. It is therefore important to take this into account in any analysis. 
+
+This repository contains a set of R scripts which attempt to filter out spurious homoplasic sites from SARS-CoV-2 assemblies. For example, in the analyses in the associated publication (see above) we go from an initial list of 1132 homoplasies identified using HomoplasyFinder to a reduced set of 198. 
+
+**It is possible that even homoplasies which pass these filtering thresholds may be artefactual/spurious, so please use and interpret results with caution.** Additional sequencing artefacts are being identified from other independent analyses and we would expect the list of suspicious sites to grow. For example, see the recent report of May 5 2020 from [de Maio et al.](http://virological.org/t/issues-with-sars-cov-2-sequencing-data/473) on Virological and the associated discussion there. 
 
 
 ## Inputs
@@ -44,8 +50,6 @@ As the script was developed with a specific analysis in mind (n=7666 assemblies 
 *Rationale*: homoplasies only present in isolates from a single originating or submitting lab could be due to batch effects.
  
 These thresholds can be changed in the main script. See manuscript for more discussion of the rationale. 
-
-**It is possible that even homoplasies which pass these filtering thresholds may be artefactual/spurious, so please use and interpret results with caution.** Additional sequencing artefacts are being identified from other independent analyses and we would expect this list to grow. For example, see the recent report of May 5 2020 from [de Maio et al.](http://virological.org/t/issues-with-sars-cov-2-sequencing-data/473) on Virological and the associated discussion there. 
 
 ## Outputs
 
