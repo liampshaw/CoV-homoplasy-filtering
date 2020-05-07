@@ -45,7 +45,7 @@ As the script was developed with a specific analysis in mind (n=7666 assemblies 
  
 These thresholds can be changed in the main script. See manuscript for more discussion of the rationale. 
 
-**It is possible that even homoplasies which pass these filtering thresholds may be artefactual/spurious, so please use and interpret results with caution.** Analyses are ongoing and additional sequencing artefacts are being identified. For example, see the recent report of May 5 2020 from [de Maio et al.](http://virological.org/t/issues-with-sars-cov-2-sequencing-data/473) on Virological and the associated discussion there. 
+**It is possible that even homoplasies which pass these filtering thresholds may be artefactual/spurious, so please use and interpret results with caution.** Additional sequencing artefacts are being identified from other independent analyses and we would expect this list to grow. For example, see the recent report of May 5 2020 from [de Maio et al.](http://virological.org/t/issues-with-sars-cov-2-sequencing-data/473) on Virological and the associated discussion there. 
 
 ## Outputs
 
