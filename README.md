@@ -2,7 +2,8 @@
 
 This repository contains R scripts to attempt to filter out spurious homoplasic sites from SARS-CoV-2 assemblies.
 
-Associated publication: 
+For more information, please see the associated publication: 
+ 
 *Emergence of genomic diversity and recurrent mutations in SARS-CoV-2*  
 L. van Dorp et al. (2020)  
 *Infection, Genetics and Evolution* doi: [10.1016/j.meegid.2020.104351](https://doi.org/10.1016/j.meegid.2020.104351) 
