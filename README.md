@@ -5,8 +5,10 @@ This repository contains R scripts to attempt to filter out spurious homoplasic 
 For more information, please see the associated publication: 
  
 *Emergence of genomic diversity and recurrent mutations in SARS-CoV-2*  
-L. van Dorp et al. (2020)  
-*Infection, Genetics and Evolution* doi: [10.1016/j.meegid.2020.104351](https://doi.org/10.1016/j.meegid.2020.104351) 
+L. van Dorp, M. Acman\*, D. Richard\*, L. P. Shaw\*, C. E. Ford, L. Ormond, C. J. Owen, J. Pangae, C. C. S. Tan, F. A.T. Boshiere, A. Torres Ortiz, F. Balloux  
+
+*Infection, Genetics and Evolution* (2020) doi: [10.1016/j.meegid.2020.104351](https://doi.org/10.1016/j.meegid.2020.104351)  
+\* = equal contribution
 
 Liam Shaw, liam.philip.shaw@gmail.com
 
@@ -30,7 +32,7 @@ As the script was developed with a specific analysis in mind (n=7666 assemblies 
 *Rationale*: small numbers of isolates more likely to be due to random sequencing error. 8 is an arbitrary number equivalent to 0.1% of dataset (n=7666) 
 * Position *x* of homoplasy in genome.  
 **Default: exclude masked sites: {{1, ..., 150}, 18529, 29849, 29851, 29853, {29853..29903}}** 
-*Rationale*: sequencing error appears more common at the start and end of the SARS-CoV-2 genome, causing high density of apparent homoplasies, and at other known sites. Taken from NextStrain masking. 
+*Rationale*: sequencing error appears more common at the start and end of the SARS-CoV-2 genome, causing high density of apparent homoplasies, and at other known sites. Taken from [NextStrain masking](https://github.com/nextstrain/ncov/blob/20974e93a647cc17595718561a69eb02a42a4e5a/config/config.yaml). 
 * Proportion of isolates with homoplasy which have a nearest neighbour in the tree with the homoplasy: ranges between 0 (singleton isolates with homoplasy throughout tree) and 1 (clusters of isolates with homoplasy).  
 **Default: >0.1**  
 *Rationale*: apparent homoplasies caused by random sequencing error are *a priori* unlikely to cluster with each other in the tree. 
@@ -43,7 +45,7 @@ As the script was developed with a specific analysis in mind (n=7666 assemblies 
  
 These thresholds can be changed in the main script. See manuscript for more discussion of the rationale. 
 
-**It is possible that even homoplasies which pass these filtering thresholds may be artefactual/spurious, so please use and interpret results with caution.** For example, see a recent report from [de Maio et al.](https://www.researchgate.net/project/Phylodynamic-methods-for-SARS-CoV-2/update/5eac5299f155db0001f8cf0d)
+**It is possible that even homoplasies which pass these filtering thresholds may be artefactual/spurious, so please use and interpret results with caution.** Analyses are ongoing and additional sequencing artefacts are being identified. For example, see the recent report of May 5 2020 from [de Maio et al.](http://virological.org/t/issues-with-sars-cov-2-sequencing-data/473) on Virological and the associated discussion there. 
 
 ## Outputs
 
