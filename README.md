@@ -1,4 +1,6 @@
-# Homoplasy filtering
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
+# SARS-CoV-2 homoplasy filtering
 
 For more information, please see the associated publication: 
  
