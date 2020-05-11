@@ -79,7 +79,11 @@ getTitleString <- function(site, snp.df=homoplasic.counts.filt.HQ){
 
 # Nearest neighbour in tree for an isolate
 nearestNeighboursIsolate <- function(isolate){
-  distances.to.others <- cophenetic.d[isolate,]
+  # Get its corresponding unique isolate
+  identical.isolates <- names(which(cophenetic.d[isolate,]==0))
+  unique.isolate <- identical.isolates[which(identical.isolates %in% rownames(cophenetic.d.unique))]
+  
+  distances.to.others <- cophenetic.d.unique[unique.isolate,]
   distances.to.others <- distances.to.others[which(distances.to.others!=0)]
   nearest.neighbours <- names(distances.to.others)[which(distances.to.others==min(distances.to.others))]
   return(nearest.neighbours)

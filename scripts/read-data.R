@@ -27,5 +27,11 @@ snp.counts$minor.variant.fraction <- sapply(as.character(snp.counts$bp),
 # NB if dataset is smaller this may throw an error
 cophenetic.df.random <- cophenetic.df[sample(nrow(cophenetic.df),size = 100000),]
 
+# Create non-duplicated cophenetic distance matrix
+unique.isolates <- rownames(unique(cophenetic.d))
+cophenetic.d.unique <- cophenetic.d[unique.isolates, unique.isolates]
+# Lookup table: for each isolate, its corresponding unique isolate
+
+
 # Read in metadata
 metadata <- read.csv(METADATA.FILE, sep='\t', header=T, stringsAsFactors = F)
