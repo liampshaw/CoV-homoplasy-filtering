@@ -125,7 +125,7 @@ homoplasic.counts.filt.HQ$N.submitting.labs <- submitting_labs
 
 # Filter to more than one submitting lab
 homoplasic.counts.filt.HQ <- homoplasic.counts.filt.HQ[which(homoplasic.counts.filt.HQ$N.submitting.labs>N.SUBMITTING.LABS & 
-                                                               homoplasic.counts.filt.HQ$N.originating.labs>NN.SUBMITTING.LABS),]
+                                                               homoplasic.counts.filt.HQ$N.originating.labs>N.SUBMITTING.LABS),]
 
 # Write to file
 write.csv(homoplasic.counts.filt.HQ, file=paste0(DATA.OUTPUT.FOLDER, '/filtered-homoplasic-sites-table.csv'))
