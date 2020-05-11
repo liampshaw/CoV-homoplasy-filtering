@@ -16,7 +16,7 @@ getMinorVariantFraction <- function(site){
     return(NA)
   }
   # Get allele counts
-  allele.counts <- as.numeric(strsplit(split = ":", fixed=TRUE, x = snp.counts[which(snp.counts==site),"CountsACGT"])[[1]])
+  allele.counts <- as.numeric(strsplit(split = ":", fixed=TRUE, x = snp.counts[which(snp.counts$bp==site),"CountsACGT"])[[1]])
   names(allele.counts) <- c("A", "C", "G", "T")
   
   # Sort by counts
