@@ -2,23 +2,32 @@
 
 # SARS-CoV-2 homoplasy filtering
 
-For more information, please see the associated publication: 
+This repository contains a set of R scripts which attempt to filter out spurious homoplasic sites from SARS-CoV-2 assemblies. 
+
+For more information, please see the associated original publication (repository version:  `git checkout 0fa7434`) which identified a list of possible recurrent mutations: 
  
-*Emergence of genomic diversity and recurrent mutations in SARS-CoV-2*  
+**[Manuscript1]** *Emergence of genomic diversity and recurrent mutations in SARS-CoV-2*  
 L. van Dorp, M. Acman\*, D. Richard\*, L. P. Shaw\*, C. E. Ford, L. Ormond, C. J. Owen, J. Pangae, C. C. S. Tan, F. A.T. Boshiere, A. Torres Ortiz, F. Balloux  
 
 *Infection, Genetics and Evolution* (2020) doi: [10.1016/j.meegid.2020.104351](https://doi.org/10.1016/j.meegid.2020.104351)  
 \* = equal contribution
 
-Liam Shaw, liam.philip.shaw@gmail.com
+Please note that the current version of this repository is associated with the below publication, which analyses the effect of recurrent mutations on transmissibility:
+
+**[Manuscript2]** *No evidence for increased transmissibility from recurrent mutations in SARS-CoV-2*  
+L. van Dorp\*, D. Richard\*, C. C. S. Tan, L. P. Shaw, M. Acman, F. Balloux  
+
+*Nature Communications* (2020) doi: [10.1038/s41467-020-19818-2](https://doi.org/10.1038/s41467-020-19818-2)
+
+Liam Shaw (liam.philip.shaw@gmail.com) & Damien Richard (richarddamienfr@gmail.com)
 
 ## Overview
 
 Ongoing analyses of public SARS-CoV-2 genomes have identified a high number of recurrent mutations i.e. those occurring more than once on the phylogenetic tree ([homoplasies](https://en.wikipedia.org/wiki/Homoplasy)). These are potentially of interest for considering the ongoing evolution of SARS-CoV-2. However, apparent homoplasies can also be caused by sequencing errors. It is therefore important to take this into account in any analysis. 
 
-This repository contains a set of R scripts which attempt to filter out spurious homoplasic sites from SARS-CoV-2 assemblies. For example, in the analyses in the associated publication (see above) we go from an initial list of 1132 homoplasies identified using HomoplasyFinder to a reduced set of 198 (you can see this version at `git checkout 0fa7434`). 
+ This repository contains a set of R scripts which attempt to filter out spurious homoplasic sites from SARS-CoV-2 assemblies. For example, in the analyses in Manuscript1 (see above) we went from an initial list of 1132 homoplasies identified using HomoplasyFinder to a reduced set of 198 (you can see this version at `git checkout 0fa7434`). 
 
-**It is possible that even homoplasies which pass these filtering thresholds may be artefactual/spurious, so please use and interpret results with caution.** Additional sequencing artefacts are being identified from other independent analyses and we would expect the list of suspicious sites to grow. For example, see the recent report of May 5 2020 from [de Maio et al.](http://virological.org/t/issues-with-sars-cov-2-sequencing-data/473) on Virological and the associated discussion there. 
+**It is possible that even homoplasies which pass these filtering thresholds may be artefactual/spurious, so please use and interpret results with caution.** Additional sequencing artefacts are being identified from other independent analyses and we would expect the list of suspicious sites to grow. (**Edit 23/11/2020:** indeed, this happened.) For example, see the report of May 5 2020 from [de Maio et al.](http://virological.org/t/issues-with-sars-cov-2-sequencing-data/473) on Virological, subsequent report on 14 July 2020, and the maintained list of problematic sites maintained by this group [here](https://github.com/W-L/ProblematicSites_SARS-CoV2/blob/master/problematic_sites_sarsCov2.vcf).
 
 
 ## Inputs
@@ -31,9 +40,9 @@ The script takes input specified in `input-data/input-parameters.R`:
 
 The main script `filter-homoplasic-sites.R` is run from within the `scripts` directory. It assumes that you have a `input-data` directory with your input data and that the names of isolates in the tree and alignment are the same. 
 
-As the script was developed with a specific analysis in mind (n=7666 assemblies downloaded from GISAID as of April 19 2020), it will **almost certainly break** on new data. Please use with caution if this is your intention. 
+As the script was developed with a specific analysis in mind (n=7666 assemblies downloaded from GISAID as of April 19 2020), it will **almost certainly break** on new data. We adapted it for our secondary publication. Please use with caution if this is your intention. 
 
-**A note on filtering thresholds.** There are several filtering thresholds used (see manuscript for more discussion).
+**A note on filtering thresholds.** There are several filtering thresholds used (see Manuscript1 for more discussion).
 
 * Number of isolates with homoplasy.  
 **Default: >8**  
@@ -51,7 +60,7 @@ As the script was developed with a specific analysis in mind (n=7666 assemblies 
 **Default: >1**  
 *Rationale*: homoplasies only present in isolates from a single originating or submitting lab could be due to batch effects.
  
-These thresholds can be changed in the main script. See manuscript for more discussion of the rationale. 
+These thresholds can be changed in the main script. See Manuscript1 for more discussion of the rationale. 
 
 ## Outputs
 
@@ -64,8 +73,8 @@ Outputs are stored in `figures` and `output-data`. They include:
 
 ## Data availability
 
-Underlying data (n=7666 assemblies) for the input files comes from the GISAID consortium. A full acknowledgements list of originating and submitting laboratories (as of April 23 2020) is available in `acknowledgements.tsv`.
+Underlying data (n=7666 assemblies) for the input files comes from the GISAID consortium. A full acknowledgements list for Manuscript1 of originating and submitting laboratories (as of April 23 2020) is available in `acknowledgements.tsv`.  
 
-The tree and multiple sequence alignment are not included in this repository as per the terms of the GISAID consortium for sharing sequence data ('You agree not to distribute Data to any third party other than Authorized Users as contemplated by this Agreement.') In order to obtain access to the assemblies in the multiple sequence alignment, you can register as a user of GISAID [here](https://www.gisaid.org/registration/register/). 
+The tree and multiple sequence alignment are not included in this repository as per the terms of the GISAID consortium for sharing sequence data ('You agree not to distribute Data to any third party other than Authorized Users as contemplated by this Agreement.') In order to obtain access to the assemblies, you can register as a user of GISAID [here](https://www.gisaid.org/registration/register/). 
 
 N.B. Protein annotations in the homoplasy count `input-data` file are based on the genbank file of Wuhan-Hu-1 (NCBI NC_045512.2) and might become out-of-date as future annotation changes. They are not used in any of the filtering. 
