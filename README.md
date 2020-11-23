@@ -4,15 +4,15 @@
 
 This repository contains a set of R scripts which attempt to filter out spurious homoplasic sites from SARS-CoV-2 assemblies. 
 
-For more information, please see the associated original publication (repository version:  `git checkout 0fa7434`) which identified a list of possible recurrent mutations: 
+For more information, please see the associated original publication (commit  `0fa7434`) which identified a list of possible recurrent mutations: 
  
 **[Manuscript1]** *Emergence of genomic diversity and recurrent mutations in SARS-CoV-2*  
 L. van Dorp, M. Acman\*, D. Richard\*, L. P. Shaw\*, C. E. Ford, L. Ormond, C. J. Owen, J. Pangae, C. C. S. Tan, F. A.T. Boshiere, A. Torres Ortiz, F. Balloux  
 
 *Infection, Genetics and Evolution* (2020) doi: [10.1016/j.meegid.2020.104351](https://doi.org/10.1016/j.meegid.2020.104351)  
-\* = equal contribution
+\* = equal contribution  
 
-Please note that the current version of this repository is associated with the below publication, which analyses the effect of recurrent mutations on transmissibility:
+Please note that the current version of this repository (commit `e0f6dfe`) is associated with the below publication, which analyses the effect of recurrent mutations on transmissibility:
 
 **[Manuscript2]** *No evidence for increased transmissibility from recurrent mutations in SARS-CoV-2*  
 L. van Dorp\*, D. Richard\*, C. C. S. Tan, L. P. Shaw, M. Acman, F. Balloux  
