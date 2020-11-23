@@ -7,7 +7,7 @@ This repository contains a set of R scripts which attempt to filter out spurious
 For more information, please see the associated original publication (commit  `0fa7434`) which identified a list of possible recurrent mutations: 
  
 **[Manuscript1]** *Emergence of genomic diversity and recurrent mutations in SARS-CoV-2*  
-L. van Dorp, M. Acman\*, D. Richard\*, L. P. Shaw\*, C. E. Ford, L. Ormond, C. J. Owen, J. Pangae, C. C. S. Tan, F. A.T. Boshiere, A. Torres Ortiz, F. Balloux  
+L. van Dorp, M. Acman\*, D. Richard\*, L. P. Shaw\*, C. E. Ford, L. Ormond, C. J. Owen, J. Pang, C. C. S. Tan, F. A.T. Boshiere, A. Torres Ortiz, F. Balloux  
 *Infection, Genetics and Evolution* (2020) doi: [10.1016/j.meegid.2020.104351](https://doi.org/10.1016/j.meegid.2020.104351)  
 \* = equal contribution  
 
