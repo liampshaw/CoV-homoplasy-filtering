@@ -8,7 +8,6 @@ For more information, please see the associated original publication (commit  `0
  
 **[Manuscript1]** *Emergence of genomic diversity and recurrent mutations in SARS-CoV-2*  
 L. van Dorp, M. Acman\*, D. Richard\*, L. P. Shaw\*, C. E. Ford, L. Ormond, C. J. Owen, J. Pangae, C. C. S. Tan, F. A.T. Boshiere, A. Torres Ortiz, F. Balloux  
-
 *Infection, Genetics and Evolution* (2020) doi: [10.1016/j.meegid.2020.104351](https://doi.org/10.1016/j.meegid.2020.104351)  
 \* = equal contribution  
 
@@ -16,7 +15,6 @@ Please note that the current version of this repository (commit `e0f6dfe`) is as
 
 **[Manuscript2]** *No evidence for increased transmissibility from recurrent mutations in SARS-CoV-2*  
 L. van Dorp\*, D. Richard\*, C. C. S. Tan, L. P. Shaw, M. Acman, F. Balloux  
-
 *Nature Communications* (2020) doi: [10.1038/s41467-020-19818-2](https://doi.org/10.1038/s41467-020-19818-2)
 
 Liam Shaw (liam.philip.shaw@gmail.com) & Damien Richard (richarddamienfr@gmail.com)
