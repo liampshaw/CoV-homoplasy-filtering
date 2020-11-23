@@ -42,7 +42,7 @@ The main script `filter-homoplasic-sites.R` is run from within the `scripts` dir
 
 As the script was developed with a specific analysis in mind (n=7666 assemblies downloaded from GISAID as of April 19 2020), it will **almost certainly break** on new data. We adapted it for our secondary publication. Please use with caution if this is your intention. 
 
-**A note on filtering thresholds.** There are several filtering thresholds used (see Manuscript1 for more discussion).
+**A note on filtering thresholds.** There are several filtering thresholds used. These values and notes below apply to the analyses in Manuscript1. The method was refined slightly for later analyses (see discussion in methods of Manuscript2)
 
 * Number of isolates with homoplasy.  
 **Default: >8**  
